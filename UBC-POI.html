@@ -16,6 +16,25 @@ style: 'https://tiles.openfreemap.org/styles/liberty',        // the file you do
 center: [-123.25, 49.26],    // longitude, latitude
 zoom: 11
 });
+const url = 'https://babooneatbanana.github.io/babooneatbanana-UBC-maplibre/ubcv_poi.geojson'
+map.on('load', function () {
+map.addSource('POI', {
+    type: 'geojson',
+    data: url,
+    attribution: 'Places of interest'
+  });
+map.addLayer({
+    id: 'SERVICE_TYPE',
+    type: 'circle',
+    source: 'POI'
+  });
+});
+function onEachPOI(e) {
+const POI = e.features[0].properties;
+if (POI.SERVICE_TYPE === child_care) {
+    'circle-color: #0000ff'
+  }
+}
 map.addControl(new maplibregl.NavigationControl());
 </script>
 </body>
