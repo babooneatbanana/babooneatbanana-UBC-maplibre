@@ -31,7 +31,7 @@ map.addLayer({
 });
 function onEachPOI(e) {
 const POI = e.features[0].properties;
-if (POI.SERVICE_TYPE === child_care) {
+if (POI.SERVICE_TYPE === 'child_care') {
     'circle-color: #0000ff'
   }
 }
