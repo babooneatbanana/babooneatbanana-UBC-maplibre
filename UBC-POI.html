@@ -29,11 +29,17 @@ map.addLayer({
     source: 'POI'
   });
 });
-function onEachPOI(e) {
-const POI = e.features[0].properties;
-if (POI.SERVICE_TYPE === 'child_care') {
-    'circle-color: #0000ff'
-  }
+map.addLayer({
+    id: 'SERVICE_TYPE',
+    type: 'circle',
+    source: 'POI',
+    paint: POImarker
+  });
+});
+const POImarker = {
+'circle-radius': 4,
+'circle-color': ['match', ['get', 'SERVICE_TYPE'],
+'child_care', '#0000ff',]
 }
 map.addControl(new maplibregl.NavigationControl());
 </script>
