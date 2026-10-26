@@ -39,6 +39,14 @@ const POImarker = {
     'campus_services' || 'housing_student', '#07f7df', '#999999'],
 'circle-opacity': 0.6
 };
+map.on('click', 'POI', onEachPOI);
+function onEachPOI(e) {
+const SERVICE = e.features[0].properties;
+const popup = new maplibregl.Popup();
+popup.setLngLat(e.lngLat)
+popup.setText(SERVICE.SERVICE_TYPE);
+popup.addTo(map);
+}
 map.addControl(new maplibregl.NavigationControl());
 </script>
 </body>
