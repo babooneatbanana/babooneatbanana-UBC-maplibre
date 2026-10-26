@@ -34,9 +34,9 @@ const POImarker = {
 'circle-radius': ['interpolate', ['linear'], ['zoom'],
 11, 2, 17, 6],
 'circle-color': ['match', ['get', 'SERVICE_TYPE'],
-    'child_care', '#0000ff', ('cafe' || 'restaurant' || 'grocery'), '#ff0000', 'commercial_services', '#f79b07', 
-    ('garden' || 'park' || 'field'), '#00ff00', ('library' || 'academic'), '#f7f307', 'athletics', '#9b07f7', 
-    ('campus_services' || 'housing_student'), '#07f7df', '#999999'],
+    'child_care', '#0000ff', (('cafe' || 'restaurant' || 'grocery'), '#ff0000'), 'commercial_services', '#f79b07', 
+    (('garden' || 'park' || 'field'), '#00ff00'), (('library' || 'academic'), '#f7f307'), 'athletics', '#9b07f7', 
+    (('campus_services' || 'housing_student'), '#07f7df'), '#999999'],
 'circle-opacity': 0.6
 };
 map.on('click', 'POI', onEachPOI);
